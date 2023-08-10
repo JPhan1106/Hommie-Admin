@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Troika VR\git\Hommie-Admin\.metadata\.plugins\org.eclipse.jdt.core
+456617314.index
+3052937412.index
+1865797976.index
