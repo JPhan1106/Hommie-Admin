@@ -1,0 +1,126 @@
+package com.hommie.DTO;
+
+import java.sql.Date;
+
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+
+public class RoomDTO {
+
+	@NotEmpty(message = "Category cannot be null")
+	private String title;
+
+	@NotEmpty(message = "Landlord's id cannot be null")
+	private int landlordID;
+
+	@NotEmpty(message = "Price cannot be null")
+	@Max(4)
+	@Min(2)
+	private int price;
+
+	@NotEmpty(message = "Price cannot be null")
+	@Max(4)
+	@Min(2)
+	private int bond;
+
+	@NotEmpty(message = "Address cannot be null")
+	private String address;
+
+	@NotEmpty(message = "State cannot be null")
+	private String state;
+
+	@NotEmpty(message = "Postcode cannot be null")
+	private String postcode;
+
+	@NotEmpty(message = "Available Date cannot be null")
+	private Date availableDate;
+
+	public RoomDTO() {
+
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getLandlordID() {
+		return landlordID;
+	}
+
+	public void setLandlordID(int landlordID) {
+		this.landlordID = landlordID;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getBond() {
+		return bond;
+	}
+
+	public void setBond(int bond) {
+		this.bond = bond;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
+
+	public Date getAvailableDate() {
+		return availableDate;
+	}
+
+	public void setAvailableDate(Date availableDate) {
+		this.availableDate = availableDate;
+	}
+
+	public RoomDTO(@NotEmpty(message = "Category cannot be null") String title,
+			@NotEmpty(message = "Landlord's id cannot be null") int landlordID,
+			@NotEmpty(message = "Price cannot be null") @Max(4) @Min(2) int price,
+			@NotEmpty(message = "Price cannot be null") @Max(4) @Min(2) int bond,
+			@NotEmpty(message = "Address cannot be null") String address,
+			@NotEmpty(message = "State cannot be null") String state,
+			@NotEmpty(message = "Postcode cannot be null") String postcode,
+			@NotEmpty(message = "Available Date cannot be null") Date availableDate) {
+		super();
+		this.title = title;
+		this.landlordID = landlordID;
+		this.price = price;
+		this.bond = bond;
+		this.address = address;
+		this.state = state;
+		this.postcode = postcode;
+		this.availableDate = availableDate;
+	}
+
+}

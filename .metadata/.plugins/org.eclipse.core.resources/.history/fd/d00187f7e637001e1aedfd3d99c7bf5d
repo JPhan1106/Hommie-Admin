@@ -1,0 +1,41 @@
+package com.hommie.DTO;
+
+import jakarta.validation.constraints.NotEmpty;
+
+public class RoomDTO {
+	
+	@NotEmpty(message = "Category cannot be null")
+	private String title;
+	
+	@NotEmpty(message = "Landlord's id cannot be null")
+	private int landlordID;
+	
+	public RoomDTO () {
+		
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getLandlordID() {
+		return landlordID;
+	}
+
+	public void setLandlordID(int landlordID) {
+		this.landlordID = landlordID;
+	}
+
+	public RoomDTO(@NotEmpty(message = "Category cannot be null") String title, int landlordID) {
+		super();
+		this.title = title;
+		this.landlordID = landlordID;
+	}
+	
+	
+	
+}

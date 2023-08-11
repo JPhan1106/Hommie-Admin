@@ -1,0 +1,38 @@
+package com.hommie.service;
+
+import java.lang.reflect.Field;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.ReflectionUtils;
+import org.springframework.stereotype.Service;
+
+import com.hommie.model.Room;
+import com.hommie.model.User;
+import com.hommie.repository.RoomRepository;
+
+@Service
+public class RoomService {
+
+	@Autowired
+	RoomRepository roomRepository;
+
+	public Room updateRoomByFields(int id, Map<String, Object> fields) {
+		Optional<Room> existingRoom = roomRepository.findById(id);
+
+		if (existingRoom.isPresent()) {
+			for (Map.Entry<String, Object> entry : fields.entrySet()) {
+				String fieldName = entry.getKey();
+				Object value = entry.getValue();
+
+				Field field = ReflectionUtils.findRequiredField(User.class, fieldName);
+
+				field.setAccessible(true);
+				ReflectionUtils.setField(field, existingRoom.get(), value);
+			}
+			return roomRepository.save(existingRoom.get());
+		}
+		return null;
+	}
+}

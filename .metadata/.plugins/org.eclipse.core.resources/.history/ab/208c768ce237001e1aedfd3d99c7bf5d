@@ -1,0 +1,5 @@
+package com.hommie.DTO;
+
+public class RoomDTO {
+
+}
